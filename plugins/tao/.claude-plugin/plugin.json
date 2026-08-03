@@ -1,0 +1,9 @@
+{
+  "name": "tao",
+  "description": "代码之道 — 以道家思想指导极简、精准的系统编程（简体中文，规范版本）。",
+  "version": "0.1.0",
+  "author": { "name": "n0madsky", "url": "https://github.com/n0madsky" },
+  "homepage": "https://github.com/n0madsky/dao-de-code",
+  "repository": "https://github.com/n0madsky/dao-de-code",
+  "license": "Apache-2.0"
+}

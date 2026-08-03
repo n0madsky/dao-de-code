@@ -1,0 +1,9 @@
+{
+  "name": "tao-en",
+  "description": "The Way of Code — Taoist principles for minimal, surgical systems programming (English).",
+  "version": "0.1.0",
+  "author": { "name": "n0madsky", "url": "https://github.com/n0madsky" },
+  "homepage": "https://github.com/n0madsky/dao-de-code",
+  "repository": "https://github.com/n0madsky/dao-de-code",
+  "license": "Apache-2.0"
+}

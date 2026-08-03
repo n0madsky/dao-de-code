@@ -1,0 +1,45 @@
+{
+  "name": "dao-de-code",
+  "description": "The Way of Code — Taoist principles for minimal, surgical systems programming, as Agent Skills in 简体中文, 繁體中文, and English.",
+  "owner": {
+    "name": "n0madsky"
+  },
+  "plugins": [
+    {
+      "name": "tao",
+      "displayName": "代码之道（简体中文）",
+      "description": "代码之道 — 以道家思想指导极简、精准的系统编程（简体中文，规范版本）。",
+      "author": {
+        "name": "n0madsky"
+      },
+      "category": "development",
+      "source": "./plugins/tao",
+      "homepage": "https://github.com/n0madsky/dao-de-code",
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "tao-zh-hant",
+      "displayName": "代碼之道（繁體中文）",
+      "description": "代碼之道 — 以道家思想指導極簡、精準的系統編程（繁體中文）。",
+      "author": {
+        "name": "n0madsky"
+      },
+      "category": "development",
+      "source": "./plugins/tao-zh-hant",
+      "homepage": "https://github.com/n0madsky/dao-de-code",
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "tao-en",
+      "displayName": "The Way of Code (English)",
+      "description": "The Way of Code — Taoist principles for minimal, surgical systems programming (English).",
+      "author": {
+        "name": "n0madsky"
+      },
+      "category": "development",
+      "source": "./plugins/tao-en",
+      "homepage": "https://github.com/n0madsky/dao-de-code",
+      "license": "Apache-2.0"
+    }
+  ]
+}

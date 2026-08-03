@@ -1,0 +1,9 @@
+{
+  "name": "tao-zh-hant",
+  "description": "代碼之道 — 以道家思想指導極簡、精準的系統編程（繁體中文）。",
+  "version": "0.1.0",
+  "author": { "name": "n0madsky", "url": "https://github.com/n0madsky" },
+  "homepage": "https://github.com/n0madsky/dao-de-code",
+  "repository": "https://github.com/n0madsky/dao-de-code",
+  "license": "Apache-2.0"
+}
