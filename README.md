@@ -63,6 +63,34 @@ the principles in the system prompt instead of loading them once:
 /tao off          also: typing "stop tao"
 ```
 
+#### Startup defaults
+
+Add a `tao` block to `~/.pi/agent/settings.json`:
+
+```json
+{
+  "tao": {
+    "enabledByDefault": true,
+    "defaultVariant": "en"
+  }
+}
+```
+
+| Setting | Values | Default |
+|---|---|---|
+| `enabledByDefault` | `true` or `false` | `false` |
+| `defaultVariant` | `en`, `zh`, `hant`, or `auto` (conversation language) | `auto` |
+
+Missing or invalid values use the defaults. Trusted project settings in
+`.pi/settings.json` override the user settings. These settings require Pi's
+`getSettings()` extension API. Older Pi versions keep the original off/auto defaults.
+
+The startup defaults apply when a session has no saved `/tao` override.
+Bare `/tao` enables the configured variant. Commands change only the session mode,
+not the settings file.
+
+Run `/reload` after you change the settings.
+
 ### opencode
 
 opencode reads `~/.claude/skills/` and `~/.agents/skills/` automatically — if

@@ -34,9 +34,9 @@ export function detectVariant(text, fallback = "en") {
   return fallback;
 }
 
-export function parseTaoCommand(text, mode) {
+export function parseTaoCommand(text, mode, defaultVariant = "auto") {
   const arg = String(text || "").trim().toLowerCase();
-  if (!arg) return mode === "off" ? { type: "set", mode: "auto" } : { type: "status" };
+  if (!arg) return mode === "off" ? { type: "set", mode: defaultVariant } : { type: "status" };
   const target = ALIASES[arg];
   return target ? { type: "set", mode: target } : { type: "invalid", arg };
 }
@@ -83,6 +83,7 @@ const STOP_TAO = /^(stop|exit|quit)\s+tao(\s+mode)?[.!]?$/i;
 
 export default function taoExtension(pi) {
   let mode = "off";
+  let defaultVariant = "auto";
   let variant = "en";
   let lastCtx = null;
 
@@ -109,7 +110,7 @@ export default function taoExtension(pi) {
       return values.length ? values.map((value) => ({ value, label: value })) : null;
     },
     handler: async (args, ctx) => {
-      const parsed = parseTaoCommand(args, mode);
+      const parsed = parseTaoCommand(args, mode, defaultVariant);
       if (parsed.type === "invalid") {
         ctx?.ui?.notify?.(`Unknown tao argument "${parsed.arg}". Use en, zh, hant, auto, off, status.`, "warning");
         return;
@@ -129,7 +130,9 @@ export default function taoExtension(pi) {
 
   pi.on("session_start", async (_event, ctx) => {
     const entries = ctx?.sessionManager?.getBranch?.() || ctx?.sessionManager?.getEntries?.() || [];
-    mode = resolveMode(entries, "off");
+    const defaults = pi.getSettings?.()?.tao;
+    defaultVariant = ["en", "zh", "hant", "auto"].includes(defaults?.defaultVariant) ? defaults.defaultVariant : "auto";
+    mode = resolveMode(entries, defaults?.enabledByDefault === true ? defaultVariant : "off");
     syncStatus(ctx);
   });
 
