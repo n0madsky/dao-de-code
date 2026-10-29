@@ -54,6 +54,15 @@ pi install git:github.com/n0madsky/dao-de-code
 Installs all three skills (pi scans the repo's `skills/` directory). Filter
 per-language in your pi settings if desired.
 
+It also installs the `/tao` mode extension (pi scans `extensions/`), which keeps
+the principles in the system prompt instead of loading them once:
+
+```
+/tao              on; picks the variant from the conversation language
+/tao en|zh|hant  force a variant
+/tao off          also: typing "stop tao"
+```
+
 ### opencode
 
 opencode reads `~/.claude/skills/` and `~/.agents/skills/` automatically — if
@@ -86,6 +95,9 @@ directory there.)
 ## Repository layout
 
 - `skills/` — source of truth; one directory per language variant.
+- `extensions/tao/` — pi extension for `/tao` mode; reads the skill bodies from
+  `skills/` (or `~/.agents/skills/`) and injects the matching variant each turn.
+  Self-check: `node --test extensions/tao/selftest.mjs`.
 - `plugins/` — thin per-language Claude Code plugins; `skills` content inside
   is a **generated copy**. Never edit it by hand: edit `skills/`, then run
   `./scripts/sync-plugins.sh`. CI-style check: `./scripts/sync-plugins.sh --check`.
